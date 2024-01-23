@@ -1,3 +1,4 @@
+
 package src;
 
 import java.awt.Color;
@@ -22,9 +23,10 @@ public class LoginAsAdmin {
     public JFrame frame;
     public String title;
 
+
     public LoginAsAdmin() {
         this.title = title;
-
+        ImageIcon image = new ImageIcon("images/logo.png");
         JFrame frame = new JFrame("Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.buildBackground(frame);
@@ -36,7 +38,7 @@ public class LoginAsAdmin {
 
         frame.setLayout(null);
         frame.setVisible(true);
-
+        frame.setIconImage(image.getImage());
         this.frame = frame;
     }
 
@@ -91,7 +93,7 @@ public class LoginAsAdmin {
 
     void prepareLoginButton(JFrame frame) {
         JButton login = new JButton("Login");
-        login.setBackground(new Color(502779));
+        login.setBackground(new Color(0x502779));
         login.setBounds(93, 541, 352, 57);
         login.setForeground(Color.WHITE);
         frame.add(login);
@@ -118,7 +120,7 @@ public class LoginAsAdmin {
 
     void prepareBackToFront(JFrame frame) {
         JButton backToFront = new JButton("Back");
-        backToFront.setBackground(new Color(502779));
+        backToFront.setBackground(new Color(0x502779));
         backToFront.setBounds(93, 640, 352, 57);
         backToFront.setForeground(Color.WHITE);
         frame.add(backToFront);

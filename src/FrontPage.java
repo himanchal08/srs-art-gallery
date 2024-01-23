@@ -1,12 +1,10 @@
 package src;
 
-import java.awt.Color;
-import java.awt.Image;
+import java.awt.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
+
+
 
 import src.utils.BackgroundPanel;
 import src.utils.Fonts;
@@ -21,8 +19,14 @@ public class FrontPage {
     private Fonts font;
     public JFrame frame;
 
+
+
+
     public FrontPage() {
+        ImageIcon image = new ImageIcon("images/logo.png");
+
         JFrame frame = new JFrame("Front");
+        frame.setIconImage(image.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.buildBackground(frame);
         this.font = new Fonts(25);
@@ -43,7 +47,7 @@ public class FrontPage {
         JLabel headingLabel = new JLabel(heading);
         headingLabel.setBounds(108, 150, 352, 80);
         headingLabel.setForeground(Color.WHITE);
-        headingLabel.setFont(new Fonts(60).getFont());
+        headingLabel.setFont(new Font("Poppins Medium",Font.PLAIN,60));
         frame.add(headingLabel);
     }
 
@@ -76,8 +80,10 @@ public class FrontPage {
 
     private void prepareLoginAsArtist(JFrame frame) {
         JButton login = new JButton("Login as Artist");
-        login.setBackground(new Color(502779));
+        login.setBackground(new Color(0x502779));
         login.setBounds(90, 289, 352, 57);
+        login.setFont(new Font("Poppins Medium",Font.PLAIN,36));
+//        login.setBorder(new RoundedBorder(10));
         login.setForeground(Color.WHITE);
         frame.add(login);
 
@@ -92,8 +98,9 @@ public class FrontPage {
 
     private void prepareLoginAsAdmin(JFrame frame) {
         JButton login = new JButton("Login as Admin");
-        login.setBackground(new Color(502779));
+        login.setBackground(new Color(0x502779));
         login.setBounds(90, 376, 352, 57);
+        login.setFont(new Font("Poppins Medium",Font.PLAIN,36));
         login.setForeground(Color.WHITE);
         frame.add(login);
 
@@ -108,8 +115,9 @@ public class FrontPage {
 
     private void prepareRegisterArtist(JFrame frame) {
         JButton register = new JButton("Register");
-        register.setBackground(new Color(502779));
+        register.setBackground(new Color(0x502779));
         register.setBounds(90, 457, 352, 57);
+        register.setFont(new Font("Poppins Medium",Font.PLAIN,36));
         register.setForeground(Color.WHITE);
         frame.add(register);
 
@@ -130,8 +138,9 @@ public class FrontPage {
 
     private void prepareGuest(JFrame frame) {
         JButton guest = new JButton("Visitor");
-        guest.setBackground(new Color(502779));
+        guest.setBackground(new Color(0x502779));
         guest.setBounds(90, 540, 352, 57);
+        guest.setFont(new Font("Poppins Medium",Font.PLAIN,36));
         guest.setForeground(Color.WHITE);
         frame.add(guest);
 
@@ -142,6 +151,7 @@ public class FrontPage {
         JButton exit = new JButton("Exit");
         exit.setBackground(new Color(0));
         exit.setBounds(90, 620, 352, 57);
+        exit.setFont(new Font("Poppins Medium",Font.PLAIN,36));
         exit.setForeground(Color.WHITE);
         frame.add(exit);
 
