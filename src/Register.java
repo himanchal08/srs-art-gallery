@@ -128,7 +128,7 @@ public class Register {
 
     void prepareRegisterButton(JFrame frame) {
         JButton register = new JButton("Register");
-        register.setBackground(new Color(502779));
+        register.setBackground(new Color(0x502779));
         register.setBounds(90, 541, 352, 57);
         register.setForeground(Color.WHITE);
         frame.add(register);
@@ -139,7 +139,7 @@ public class Register {
 
     void prepareBackButton(JFrame frame) {
         JButton back = new JButton("Back");
-        back.setBackground(new Color(502779));
+        back.setBackground(new Color(0x502779));
         back.setBounds(90, 640, 352, 57);
         back.setForeground(Color.WHITE);
         frame.add(back);
