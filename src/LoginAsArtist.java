@@ -25,7 +25,7 @@ public class LoginAsArtist {
 
     public LoginAsArtist(String title) {
         this.title = title;
-
+        ImageIcon image = new ImageIcon("images/logo.png");
         JFrame frame = new JFrame("Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.buildBackground(frame);
@@ -37,7 +37,7 @@ public class LoginAsArtist {
 
         frame.setLayout(null);
         frame.setVisible(true);
-
+        frame.setIconImage(image.getImage());
         this.frame = frame;
     }
 
