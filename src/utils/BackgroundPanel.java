@@ -6,7 +6,7 @@ import java.awt.Image;
 import javax.swing.JComponent;
 
 public class BackgroundPanel extends JComponent {
-    private Image backgroundImage;
+    private final Image backgroundImage;
 
     public BackgroundPanel(Image backgroundImage) {
         this.backgroundImage = backgroundImage;

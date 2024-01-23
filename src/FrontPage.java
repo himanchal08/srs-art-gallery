@@ -118,7 +118,12 @@ public class FrontPage {
         this.registerArtist = register;
 
         this.registerArtist.addActionListener(e -> {
-            new Register();
+            try {
+                new Register();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+
             frame.dispose();
         });
     }

@@ -11,8 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import src.utils.ArtistUploadPage;
 import src.utils.BackgroundPanel;
 import src.utils.Fonts;
+import src.db.MySQL;
+
 
 public class LoginAsArtist {
     public JTextField loginField;
@@ -117,6 +120,30 @@ public class LoginAsArtist {
         Fonts font = new Fonts(25);
         font.setFontOnButtons(login);
         this.login = login;
+
+        JLabel incorrect = new JLabel();
+        incorrect.setBounds(93, 501, 352, 57);
+        incorrect.setForeground(Color.WHITE);
+        frame.add(incorrect);
+
+        this.login.addActionListener(e -> {
+            String username = this.loginField.getText();
+            String password = new String(this.passwordField.getPassword());
+
+            try {
+                MySQL sql = new MySQL();
+                boolean result = sql.checkUser(username, password);
+
+                if (!result) {
+                    incorrect.setText("Incorrect Password");
+                } else {
+                    new ArtistUploadPage(username, password);
+                    frame.dispose();
+                }
+            } catch (Exception ignored) {
+
+            }
+        });
     }
 
     void prepareBackToFront(JFrame frame) {

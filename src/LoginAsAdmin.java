@@ -98,6 +98,20 @@ public class LoginAsAdmin {
         Fonts font = new Fonts(25);
         font.setFontOnButtons(login);
         this.login = login;
+
+        JLabel incorrect = new JLabel();
+        incorrect.setForeground(Color.WHITE);
+        incorrect.setBounds(93, 490, 352, 57);
+        incorrect.setFont(new Fonts(23).getFont());
+        frame.add(incorrect);
+        this.login.addActionListener(e -> {
+            String password = new String(this.passwordField.getPassword());
+            if (!password.equals("root")) {
+                incorrect.setText("INCORRECT ROOT PASSWORD");
+            } else {
+                incorrect.setText("Access Granted");
+            }
+        });
     }
 
     void prepareBackToFront(JFrame frame) {

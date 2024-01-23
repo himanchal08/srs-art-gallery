@@ -1,8 +1,6 @@
 package src;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Insets;
+import java.awt.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +11,8 @@ import javax.swing.JTextField;
 
 import src.utils.BackgroundPanel;
 import src.utils.Fonts;
+
+import src.db.MySQL;
 
 public class Register {
     public JTextField nameField;
@@ -25,7 +25,7 @@ public class Register {
     private Fonts font;
     public JFrame frame;
 
-    public Register() {
+    public Register() throws Exception {
         JFrame frame = new JFrame("Front");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.buildBackground(frame);
@@ -60,11 +60,11 @@ public class Register {
         frame.add(blocksLabel);
     }
 
-    void prepareButtons(JFrame frame) {
+    void prepareButtons(JFrame frame) throws Exception {
         this.prepareHeading(frame);
         this.prepareUsernameField(frame);
         this.preparePasswordField(frame);
-        this.prepareConfirmPassowrdField(frame);
+        this.prepareConfirmPasswordField(frame);
         this.prepareRegisterButton(frame);
         this.prepareBackButton(frame);
     }
@@ -110,7 +110,7 @@ public class Register {
         this.passwordField = passwordField;
     }
 
-    void prepareConfirmPassowrdField(JFrame frame) {
+    void prepareConfirmPasswordField(JFrame frame) {
         JLabel confirmPasswordLabel = new JLabel("Confirm Password");
         confirmPasswordLabel.setBounds(91, 371, 150, 22);
         confirmPasswordLabel.setForeground(Color.WHITE);
@@ -126,15 +126,39 @@ public class Register {
         this.confirmPasswordField = confirmPasswordField;
     }
 
-    void prepareRegisterButton(JFrame frame) {
+    void prepareRegisterButton(JFrame frame) throws Exception {
         JButton register = new JButton("Register");
         register.setBackground(new Color(502779));
         register.setBounds(90, 541, 352, 57);
         register.setForeground(Color.WHITE);
         frame.add(register);
 
+        JLabel incorrectPassword = new JLabel();
+        incorrectPassword.setForeground(Color.WHITE);
+        incorrectPassword.setBounds(90, 490, 352, 57);
+        incorrectPassword.setFont(new Fonts(25).getFont());
+        frame.add(incorrectPassword);
+
         this.font.setFontOnButtons(register);
         this.registerButton = register;
+
+        this.registerButton.addActionListener(e -> {
+            String name = this.nameField.getText();
+            String password = new String(this.passwordField.getPassword());
+            String confirmPassword = new String(this.confirmPasswordField.getPassword());
+
+            if (!password.equals(confirmPassword)) {
+                incorrectPassword.setText("Password did not match with confirm password");
+            } else {
+                try {
+                    MySQL sql = new MySQL();
+                    sql.insertUsersTable(name, password);
+                    incorrectPassword.setText("Account Created");
+                } catch (Exception ignored) {
+                    incorrectPassword.setText("User already exists");
+                }
+            }
+        });
     }
 
     void prepareBackButton(JFrame frame) {
