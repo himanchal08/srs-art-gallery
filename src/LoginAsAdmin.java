@@ -90,7 +90,7 @@ public class LoginAsAdmin {
 
     void prepareLoginButton(JFrame frame) {
         JButton login = new JButton("Login");
-        login.setBackground(new Color(502779));
+        login.setBackground(new Color(0x502779));
         login.setBounds(93, 541, 352, 57);
         login.setForeground(Color.WHITE);
         frame.add(login);
@@ -102,7 +102,7 @@ public class LoginAsAdmin {
 
     void prepareBackToFront(JFrame frame) {
         JButton backToFront = new JButton("Back");
-        backToFront.setBackground(new Color(502779));
+        backToFront.setBackground(new Color(0x502779));
         backToFront.setBounds(93, 640, 352, 57);
         backToFront.setForeground(Color.WHITE);
         frame.add(backToFront);
