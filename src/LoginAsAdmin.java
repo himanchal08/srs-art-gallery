@@ -1,29 +1,8 @@
-package src;
-
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Insets;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-
-import src.utils.BackgroundPanel;
-import src.utils.Fonts;
-
-public class LoginAsAdmin {
-    public JPasswordField passwordField;
-    public JButton login;
-    public JButton backToFront;
-
-    public JFrame frame;
-    public String title;
+public String title;
 
     public LoginAsAdmin(String title) {
         this.title = title;
-
+        ImageIcon image = new ImageIcon("images/logo.png");
         JFrame frame = new JFrame("Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.buildBackground(frame);
@@ -35,7 +14,7 @@ public class LoginAsAdmin {
 
         frame.setLayout(null);
         frame.setVisible(true);
-
+        frame.setIconImage(image.getImage());
         this.frame = frame;
     }
 
