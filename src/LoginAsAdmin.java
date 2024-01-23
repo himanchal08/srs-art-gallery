@@ -13,6 +13,7 @@ import javax.swing.JPasswordField;
 import src.utils.BackgroundPanel;
 import src.utils.Fonts;
 
+
 public class LoginAsAdmin {
     public JPasswordField passwordField;
     public JButton login;
@@ -21,7 +22,7 @@ public class LoginAsAdmin {
     public JFrame frame;
     public String title;
 
-    public LoginAsAdmin(String title) {
+    public LoginAsAdmin() {
         this.title = title;
 
         JFrame frame = new JFrame("Login");
@@ -109,7 +110,8 @@ public class LoginAsAdmin {
             if (!password.equals("root")) {
                 incorrect.setText("INCORRECT ROOT PASSWORD");
             } else {
-                incorrect.setText("Access Granted");
+                frame.dispose();
+                new LoginAsAdmin();
             }
         });
     }

@@ -76,9 +76,11 @@ public class ArtistUploadPage {
         button.addActionListener(e -> {
             fc.showOpenDialog(frame);
             File selFile = fc.getSelectedFile();
-            filePath.set(selFile.getPath());
-            uploaded.setText("File recorded" + filePath);
-            System.out.println(filePath);
+            if (selFile != null) {
+                filePath.set(selFile.getPath());
+                uploaded.setText("File recorded" + filePath);
+                System.out.println(filePath);
+            }
         });
     }
 

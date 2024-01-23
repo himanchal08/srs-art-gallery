@@ -101,7 +101,7 @@ public class FrontPage {
         this.loginAsAdmin = login;
 
         this.loginAsAdmin.addActionListener(e -> {
-            new LoginAsAdmin("Login as Admin");
+            new AdminPage();
             frame.dispose();
         });
     }
