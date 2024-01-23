@@ -27,6 +27,7 @@ public class Register {
 
     public Register() {
         JFrame frame = new JFrame("Front");
+        ImageIcon image = new ImageIcon("images/logo.png");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.buildBackground(frame);
         this.font = new Fonts(25);
@@ -38,7 +39,7 @@ public class Register {
 
         frame.setLayout(null);
         frame.setVisible(true);
-
+        frame.setIconImage(image.getImage());
         this.frame = frame;
     }
 
@@ -74,7 +75,7 @@ public class Register {
         JLabel headingLabel = new JLabel(heading);
         headingLabel.setBounds(96, 80, 345, 80);
         headingLabel.setForeground(Color.WHITE);
-        headingLabel.setFont(new Fonts(60).getFont());
+        headingLabel.setFont(new Fonts(36).getFont());
         frame.add(headingLabel);
     }
 
