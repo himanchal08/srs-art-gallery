@@ -108,7 +108,7 @@ public class FrontPage {
         this.loginAsAdmin = login;
 
         this.loginAsAdmin.addActionListener(e -> {
-            new LoginAsAdmin("Login as Admin");
+            new AdminPage();
             frame.dispose();
         });
     }
@@ -126,7 +126,12 @@ public class FrontPage {
         this.registerArtist = register;
 
         this.registerArtist.addActionListener(e -> {
-            new Register();
+            try {
+                new Register();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+
             frame.dispose();
         });
     }

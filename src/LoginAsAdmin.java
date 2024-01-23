@@ -1,6 +1,30 @@
-public String title;
 
-    public LoginAsAdmin(String title) {
+package src;
+
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Insets;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+
+import src.utils.BackgroundPanel;
+import src.utils.Fonts;
+
+
+public class LoginAsAdmin {
+    public JPasswordField passwordField;
+    public JButton login;
+    public JButton backToFront;
+
+    public JFrame frame;
+    public String title;
+
+
+    public LoginAsAdmin() {
         this.title = title;
         ImageIcon image = new ImageIcon("images/logo.png");
         JFrame frame = new JFrame("Login");
@@ -77,6 +101,21 @@ public String title;
         Fonts font = new Fonts(25);
         font.setFontOnButtons(login);
         this.login = login;
+
+        JLabel incorrect = new JLabel();
+        incorrect.setForeground(Color.WHITE);
+        incorrect.setBounds(93, 490, 352, 57);
+        incorrect.setFont(new Fonts(23).getFont());
+        frame.add(incorrect);
+        this.login.addActionListener(e -> {
+            String password = new String(this.passwordField.getPassword());
+            if (!password.equals("root")) {
+                incorrect.setText("INCORRECT ROOT PASSWORD");
+            } else {
+                frame.dispose();
+                new LoginAsAdmin();
+            }
+        });
     }
 
     void prepareBackToFront(JFrame frame) {
